@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+	<title>Decoding AI Systems</title>
+</head>
+<body>
+
+<div id="intro">
+  <img src="images/header.jpg" id="header">
+<h1>Decoding AI Systems: the Oura Ring</h1>
+<h3>Sociotechnical analysis and Responsible AI evaluation</h3>
+<br>
+<h3>Read in <a href="pdf/Decoding_AI_Kiril_Traykov.pdf" target="_blank" rel="noopener noreferrer">PDF</a></h3>
+<p>December 2, 2025</p>
+<p>3500 words, 15 mins read</p>
+<p>(submitted for a Decoding AI Systems class)</p>
+</div>
+
+<div id="main">
+<h3>I. Background</h3>
+<p>Wearable technology for personal health information and knowledge management has gained 
+tremendous popularity in the last 11 years<sup class="footnote-ref">1</sup>. Ever since Apple introduced its very first 
+smartwatch in September 2014<sup class="footnote-ref">2</sup>, adoption of such devices has become mainstream and at present, 
+one in three adults in the United States has a wearable health device<sup class="footnote-ref">3</sup> with the North American 
+region holding the highest market share globally<sup class="footnote-ref">4</sup>. Industry reports show that in Spain, wearable 
+health tech is also following an accelerating adoption curve with expected annual growth rate in 
+the next 10 years of 26% (2026-2035)<sup class="footnote-ref">5</sup>.</p>
+
+<p>Such devices are offered to the consumer in multiple physical forms and range from smartwatches 
+to skin patches to rings, but in all of them, the underlying technology is built on advanced highly 
+sensitive sensors. Almost all devices come with an accompanying digital app where the wearer can view 
+and interact with the collected metrics and observe personal health trends in more user-friendly and 
+knowledge-building way.</p>
+
+<h3>II. Introduction and History</h3>
+
+<p>One such wearable device is the Oura Ring by Oura Health Ltd (Image 1). Founded in 2013 in Oulu, 
+Finland, Oura Health designs wearable ring devices, manufactured in China, to track essential 
+biometrics and extrapolate smart scores from them using (1) a machine-learning algorithm to classify 
+sleep stages and (2) a rule-based algorithm to integrate several other contributors together. 
+Based on these smart scores and personal trends in the data, it offers daily lifestyle recommendations 
+for the wearer. Thus, the Oura Ring represents an AI system according to the OECD AI principles<sup class="footnote-ref">6</sup>. 
+The company released its first-generation product in 2015 and as of November 2025, on its fourth 
+generation, it has sold 5.5 million rings globally<sup class="footnote-ref">7</sup>. It is currently valued at $11 bn<sup class="footnote-ref">8</sup> with its 2025 
+revenues expected to double ($1 bn) over those of 2024 ($500 million).</p>
+
+<p><i>Image 1: Oura Rings, 4th generation, in different finishes (company website)</i></p>
+<img src="images/pic1.png" id="pic1">
+ 
+<p>The Oura Ring first came into media limelight during the COVID-19 pandemic in 2020<sup class="footnote-ref">9</sup>. 
+Under the threat of the rapidly spreading coronavirus, the NBA started monitoring the health 
+of its basketball players (all of them gathered at a single tournament site in Orlando, FL) by 
+asking them to wear Oura Rings while they sleep. The Oura Rings measured body temperature, 
+respiratory rate, heart rate, and heart rate variability (HRV) and the readings served as early 
+indicators if a player was developing any fever symptoms. As soon as a player had an uptick in 
+the metrics (especially body temperature), he went into isolation so as not to infect any others. 
+Using this protocol, the NBA teams were able to finish the season successfully. This was Oura 
+Ring’s breakthrough moment. The same protocol was then applied in the WNBA, who were able to 
+finish the entire 5-month season without a single COVID case<sup class="footnote-ref">10</sup>.</p>
+
+<p>Thus, the Oura Ring was situated in the media narrative as health preventive smart tech, 
+able to flag early signals for the onset of inflammations or other ailments. It carried high 
+ethical appreciation for its valuable pre-diagnostic service and represented a win-win for everyone: 
+the tech makers, the users, and society at large.</p>
+
+<h3>III.	Sociotechnical dimensions</h3>
+<p>The typical user journey could be inferred from Oura’s interview with Chris Paul, 
+an NBA point-guard<sup class="footnote-ref">11</sup>, who says that “I always check my Readiness Score when I wake up. 
+I want to see a snapshot of how I can expect to feel that day. Then if I see something off, 
+I like to dive in further, first to the Sleep Score, to see how well I slept the night before.”<sup class="footnote-ref">12</sup></p>
+
+<p>The computation of these two “smart scores” (the Readiness and Sleep Scores) is the expression of 
+predictive AI, which converts biometric measurements gathered while asleep into directional conclusions 
+about the overall wellbeing of the user. Because of this interplay between smart sensing technology, 
+system-generated predictive scoring, and real-life medical implications for humans, who absorb and 
+process the system’s outputs, on most occasions in the absence of expert advice, the Oura Ring creates 
+a socio-technical environment with its own merits and risks, which will be examined in more detail in 
+the rest of this paper.</p>
+
+<p>Once a person starts wearing an Oura Ring, it first accumulates data for a period of two weeks 
+to establish a baseline for the user and then starts presenting all metrics in relation to the user’s 
+own baseline. Thus, the user can learn about his or her own body as a unique organism 
+(e.g. typical resting heart rate while asleep, typical respiratory rate, etc) and then focus on 
+deviations from those as a way to manage his or her own health, as opposed to trying to match up 
+to measurements for the global population, which can bring more harm than good.</p> 
+
+<p>In this way, the Oura Ring establishes unparalleled personalization and equips the user with 
+information, but how the user reacts to and converts this information into subsequent actions 
+(if any) is perhaps the most unpredictable variable in this socio-technical environment.</p>
+
+<h3>IV.	The algorithmic content for broader public understanding</h3> 
+
+<p>Based on the initial discussion above, Oura Health’s socio-technical environment would be most 
+vulnerable to critique from the lens of the formalism trap as the company applies formal mathematical 
+modeling to measure well-being, which may extend far beyond any mathematical scope. To examine this, 
+we can dive into the biological sleep process that Oura Health is converting into an AI-computed 
+score for well-being (Figure 1).</p>
+
+<p><i>Figure 1: Biological Sleep Process (illustration by author):</i></p>
+<img src="images/pic2.png" id="pic2">
+
+<p>Based on this human sleep architecture, Oura Health builds the Sleep Score from 7 variables 
+and the Sleep Score itself is then used as one of 7 variables for the Readiness Score (Figure 2). 
+One variable – the lowest resting heart rate while asleep – is used as a contributor in the 
+computation of both scores. Thus, the Readiness Score is a partial derivative of the Sleep Score, 
+but the weight given to the Sleep Score depends on which “score bucket” it falls into, i.e. the 
+contribution is uneven.</p>
+
+<p><i>Figure 2: Composition of the Readiness and Sleep Scores (illustration by author)</i></p>
+<img src="images/pic3.png" id="pic3">
+
+<p>The scale for both scores ranges from 0 to 100. A score over 85 is “optimal”, while a score 
+of 100 is designed to be very rare. Based on the score received, Oura Health offers brief emphatic 
+commentary for the user (Image 2) or suggestions on how to spend the day (Image 3). These are 
+formulated in light language because they too can impel the user to modify his or her behavior 
+based on conclusions from this AI algorithm. The impression is that Oura Health leaves it to each 
+individual user to assimilate the information and rationally decide how to alter (or not) his or her day.</p>
+
+<div id="block">
+<div id="leftpic">
+<p><i>Image 2: Sleep Score with brief commentary by the app</i></p>
+<img src="images/pic4.jpg" id="pic4">
+</div>
+
+<div id="rightpic">
+<p><i>Image 3: Readiness Score with brief commentary by the app</i></p>
+<img src="images/pic5.jpg" id="pic5">
+</div>
+</div>
+<p><i>Note: real images by the author</i></p>
+
+<p>In the trade-off between the effort to keep its app simple on the front-end but still run a 
+computational model that evaluates human well-being in the background, Oura Health does not get 
+into the formulaic specifics of its rule-based algorithm, which leaves the user unaware how much 
+weight each variable carries. However, the company is more open about its machine-learning algorithm 
+for determining the sleep stages, published in a sperate peer-reviewed paper<sup class="footnote-ref">13</sup>, which provides more 
+transparency to the science behind the marketing. Oura Health also points out on its website that 
+in addition to an in-house team of more than 30 Ph.D.-trained R&D staff, the company works with a 
+Medical Advisory Board<sup class="footnote-ref">14</sup>, which serves as an independent controlling organ to ensure scientific 
+robustness, maintain human oversight, and model human health to the extent afforded by the 
+technology of wearable devices today.</p>
+
+<h3>V.	The algorithmic content from technical perspective</h3> 
+
+<p>In technical terms, the Oura Ring measures the body signals via infrared photoplethysmography (PPG),
+negative temperature coefficient (NTC), and a 3-D accelerometer. All sensors are located on the inside 
+of the ring (Image 4), lying adjacent to the underside (palm side) of the finger. The device is powered
+by a USB charging base and is water-resistant up to 100 meters.</p>
+
+<p><i>Image 4: Technical illustration of the Oura Ring (2nd generation)<sup class="footnote-ref">24</sup>: 
+The ring has a titanium cover, battery, power handling circuit, double core processor, memory, 
+two LEDs, a photosensor, temperature sensors, 3-D accelerometer, and Bluetooth connectivity to 
+a smartphone app.</i></p>
+<img src="images/pic6.png" id="pic6">
+
+<p>Applying a sociotechnical framework to evaluate the AI system holistically (Table 1), we can uncover 
+additional characteristics about its profile and governance:</p>
+
+<p><i>Table 1: System dimensions of the AI behind Oura Ring</i></p>
+<table border="1" style="border-collapse: collapse;">
+<thead>
+<tr>
+<th class="blue">Dimension</th>
+<th class="blue">Type</th>
+<th class="blue">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scale</td>
+<td>Narrow</td>
+<td>Specific purpose to track, classify, and amalgamate raw biometric data into a wellness indicator.</td>
+</tr>
+<tr>
+<td>Machine Learning method</td>
+<td>Supervised</td>
+<td>Supervised model training and testing for sleep-stage classification performed using a 
+Light Gradient Boosting Machine (LightGBM) classifier with a DART boosting and 500 estimators<sup class="footnote-ref">12</sup>. 
+LightGBM typically provides high accuracy, fast training, low memory usage, and is capable of 
+handling missing values at instances where data is of too poor quality to calculate features. 
+Once the sleep stages are classified and the <i>Sleep Efficiency %</i> is calculated, Oura Health 
+applies a rule-based algorithm to combine multiple metrics and derive a Sleep and Readiness score.</td>
+</tr>
+<tr>
+<td>Function</td>
+<td>Descriptive, Analytical, also a light Recommender</td>
+<td>Offers descriptive statistics (in single points and in trend lines), creating an analytical 
+profile for the user, and offers short recommendations how to spend the day from physical activity 
+standpoint.</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>Rule-based scoring algorithm for final well-being scores</td>
+<td>Normalizes user data against personal baselines, applies thresholds (e.g. <i>Sleep Latency</i> is only 
+rewarded if user falls asleep within an “ideal range”), applies ranges (e.g. <i>Sleep Efficiency %</i> 
+contributes differently depending on which discrete scoring bins it falls into, 
+e.g. 80-85%, 85-90%, etc), and applies fixed, pre-determined weighting for each contributor to 
+arrive at a Sleep or Readiness Score.</td>
+</tr>
+<tr>
+<td>Epistemic orientation</td>
+<td>Social/Reflexive</td>
+<td>Does not constitute medical advice, but makes the user learn about his or her own biological 
+rhythm and reflect on lifestyle choices and possible changes.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>VI.	Ambiguity and conflict between casual and medical use</h3>
+<p>Presented on the app’s interface in easy-to-absorb language and graphs, the smart scores 
+and key metrics feel intuitive to the users but can lead to ambiguity because the inner workings 
+of the body don’t always follow uniform, consistent reading. Oura Health’s AI-driven evaluations 
+create narratives, but those narratives depend on the user’s behavioral context. Here are 3 
+scenarios in which there is a narrative clash between the intentions of Oura Health for its 
+AI system and human use (which also represents the portability trap that AI models do not work 
+for all contexts):</p>
+
+<ul>
+<li>Alcohol consumption: Oura Health notes in its blog that the metrics for many people on 
+Sunday mornings are off because many users have been out till late in social contexts and 
+have consumed alcohol. Aggregate metrics collected over 6 months from 600,000 users<sup class="footnote-ref">15</sup>, who 
+tagged in the app that they consumed alcohol, show that the average heart rate increased by 10%, 
+the lowest resting heart rate rose by 8%, heart rate variability (HRV) lowered by 16%, and overall 
+sleep dropped by 35 minutes (7%). For users who are not as meticulous and don’t tag a night out 
+with alcohol, Oura Ring’s AI will compute lower scores, which will affect their 2-week moving 
+baselines as the algorithm does not discriminate between real-world events and may even suggest 
+that they are falling ill, while in reality their bodies are fighting the aftermath of alcohol. 
+It then remains an ethical choice by the users to own up the true narrative.</li>
+<br>
+<li>HRV: Heart rate variability is a metric that hasn’t been closely utilized or embedded 
+in cardiovascular science (only since the 2000s does more substantial body of literature exist)<sup class="footnote-ref">16</sup>. 
+Anecdotally, it is only gaining attention now because wearable device users are asking their doctors 
+about it<sup class="footnote-ref">17</sup>. Most doctors, such as Elijah Behr, will straight up say 
+“Ignore it as a standalone measure … watch blood pressure, cholesterol, weight, exercise; 
+if you are worried about your HRV, you should be worried about these.”<sup class="footnote-ref">18</sup>. However, 
+the Oura Ring cannot measure any of these other metrics, while the users receive HRV 
+information in isolation and can jump to unfounded worries about their health. 
+Many doctors, including Harvard’s Medical Journal<sup class="footnote-ref">19</sup>, also question “the accuracy, 
+reliability and overall usefulness of tracking HRV” from technological data-collection 
+standpoint and advise “do not get too confident if you have a high HRV, or too worried if 
+your HRV is low”, a trap that many users, being human, can easily fall into.</li>
+<br>
+<li>Medications or physical conditions causing insomnia: There are many medications that affect 
+human biology in a way that leads to insomnia. If a user starts taking such medications 
+(or simply has pain and cannot sleep, such as a toothache, for example), the Oura Ring will 
+start returning lower scores, which can dishearten the user and lead to even more aggravation 
+and stress. In this way, the observability and realness of the declining scores by Oura can 
+have a snow-ball psychological effect to increase the feeling of negative emotions in the 
+users such as helplessness and frustration. Again, the algorithm is doing its job, but the 
+results can lead to outcomes that are misaligned with the informative intent by its builders.</li>
+</ul>
+
+<p>To counter these possible traps, Oura Health recognizes the need to implement trend reporting 
+as a more telling narrative, so the team behind the app has created user views that put every 
+metric on a trendline. Thus, the company is trying to push “responsible tech” to enable users 
+to seek qualified medical advice primarily when they see a persisting deviation in the trendline.</p>
+
+<h3>VI.	Responsible AI evaluation</h3>
+
+<p>As we have seen, the human dimension in this sociotechnical environment is a critical factor 
+because humans can misinterpret the well-being smart scores and convert Oura’s outputs into health 
+risks for themselves. But from technological standpoint, the AI system scores very well in its 
+Responsible AI profile (Table 2).</p>
+
+<p><i>Table 2: Responsible AI profile for Oura Ring and its computational scoring for well-being</i></p>
+
+<table border="1" style="border-collapse: collapse;">
+<thead>
+<tr>
+<th class="blue">Dimension</th>
+<th class="blue">Rating</th>
+<th class="blue">Details for chosen rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interpretability</td>
+<td class="green1">High</td>
+<td>The algorithmic score is understood on global level by examining the recorded measurements for 
+the key metrics and isolating deviations.</td>
+</tr>
+<tr>
+<td>Fairness</td>
+<td class="green1">High</td>
+<td>Provides equality and equity for the users because the outputs of the AI system lack 
+discrimination or unethical treatment.</td>
+</tr>
+<tr>
+<td>Privacy</td>
+<td class="green1">High</td>
+<td>Safeguards user identity<sup class="footnote-ref">20</sup>; does not sell or rent user data; user data not shared with anyone 
+unless the user requests the data to be sent to an external data recipient; user data aggregated as 
+totals in 1st party studies.</td>
+</tr>
+<tr>
+<td>Security</td>
+<td class="green1">High</td>
+<td>Strong, industry-standard security policy and features<sup class="footnote-ref">21</sup>. 
+No history of any data security breaches.</td>
+</tr>
+<tr>
+<td>Resilience</td>
+<td class="green1">High</td>
+<td>Adaptable to special needs. Oura Health recognized that women’s metrics swing during 
+certain periods so they rolled out special features for women – Cycle Insights 
+(for period prediction, fertile window, and more) and Pregnancy Insights<sup class="footnote-ref">22</sup>. 
+As a result, as of 2024, 59% of Oura’s users are women.</td>
+</tr>
+<tr>
+<td>Bias</td>
+<td class="green2">Low to moderate</td>
+<td>For its sleep staging algorithm, Oura Health publishes the training set profile and publicly 
+informs that the set is derived from different climate environments (Singapore, Finland, and the USA) 
+and from 118 people with different skin tones, body compositions (BMI), behavioral habits 
+(such as eating times before going to bed), ages (15 to 73), and healthy condition<sup class="footnote-ref">13</sup>. 
+Thus, we can assume “low to moderate” bias for the sleep stage algorithm because the 
+diversity of the set is robust but may still underrepresent certain demographic cases 
+or health conditions. Key biometric thresholds for the other metrics 
+(heart rate, respiration rate, etc.) are based on total population accepted medical norms.</td>
+</tr>
+<tr>
+<td>Accuracy</td>
+<td class="green2">Moderate to high</td>
+<td>Achieves 79% agreement with a polysomnography (PSG) sleep lab test<sup class="footnote-ref">23</sup> 
+for measuring sleep stages (highest % among sleep wearable devices, specifically 
+Fitbit and Apple Watch); Other biometrics (such as heart rate, body temperature) 
+deemed accurate because of advanced sensor technology, but doubt remains about HRV.</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td class="green2">Moderate to high</td>
+<td>On some occasions while the user is asleep, the ring can slip or stop recording metrics 
+for some time due to physical movement.</td>
+</tr>
+<tr>
+<td>Transparency</td>
+<td class="orange">Moderate</td>
+<td>Published peer-reviewed white paper<sup class="footnote-ref">13</sup> available to the public on the scientific 
+construct of the ring and the accuracy of the machine learning algorithm. 
+The profile of its training set is also published. However, the rule-based algorithm 
+for the computation of the smart scores for well-being remains an IP secret.</td>
+</tr>
+<tr>
+<td>Explainability</td>
+<td class="red">Low</td>
+<td>Information is provided neither about the weight of each key metric in the rule-based 
+computation of the smart scores, nor about the upper and lower limits of the “buckets” their values go into, so 
+it remains unknown how much each specific key metric influences the final scores. Most likely 
+withheld as IP protection.</td>
+</tr>
+<tr>
+<td>Accountability</td>
+<td class="grey">Not applicable</td>
+<td>Does not carry accountability for the health choices by consumers.</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<p>A noteworthy callout from the above evaluation is that Interpretability is high, while 
+Explainability is low. One supposition for this is that Oura Health deliberately withholds 
+its proprietary rule-based algorithm used for the computation of the two well-being smart 
+scores to protect its IP, while assuring the users that the methodology is reviewed and approved 
+by a Medical Advisory Board.</p> 
+
+<h3>VII.	Conclusion</h3>
+
+<p>In sum, Oura Health has an innovative product, based on machine learning and rule-based algorithms, 
+to equip people with biological knowledge about the self. It exhibits high ratings from Responsible AI 
+lens and even if there are doubts on the accuracy of some of the biometric measurements, the product 
+remains useful because it focuses on deviations from the user’s typical baseline. The exact rule-based 
+algorithm is not revealed but Oura Health maintains the trust of its users through its external 
+governance approach via the Medical Advisory Board and robust data privacy and security policies. 
+From business perspective, the app is very well-developed, providing rich information and different 
+views for data exploration, but in this sociotechnical environment, the human behavior, interpretation, 
+and reaction carry the highest risk for any harmful consequences.</p>
+
+
+<br>
+<br>
+<hr> <!-- Horizontal line separator -->
+
+<p><sup class="footnote-ref">1</sup> Editorial, "<a href="https://themagazineworld.com/the-growing-popularity-of-wearable-technology/" 
+target="_blank" rel="noopener noreferrer">The Growing Popularity of Wearable Technology</a>", 
+<i>The Magazine World</i>, February 20, 2025.</p>
+
+<p><sup class="footnote-ref">2</sup> Press release, "<a href="https://www.apple.com/newsroom/2014/09/09Apple-Unveils-Apple-Watch-Apples-Most-Personal-Device-Ever/" 
+target="_blank" rel="noopener noreferrer">Apple Unveils Apple Watch—Apple’s Most Personal Device Ever</a>", 
+<i>Apple Newsroom</i>, September 9, 2014.</p>
+
+<p><sup class="footnote-ref">3</sup> Press release, "<a href="https://www.nhlbi.nih.gov/news/2023/study-reveals-wearable-device-trends-among-us-adults" 
+target="_blank" rel="noopener noreferrer">Study reveals wearable device trends among U.S. adults</a>", 
+<i>The National Heart, Lung, and Blood Institute (NHLBI)</i>, June 15, 2023.</p>
+
+<p><sup class="footnote-ref">4</sup> Dey, Maitrayee, "<a href="https://electroiq.com/stats/wearable-technology-statistics/" 
+target="_blank" rel="noopener noreferrer">Wearable Technology Statistics By Market, Consumers And Region</a>", 
+<i>ElectroIQ Research</i>, September 18, 2025.</p>
+
+<p><sup class="footnote-ref">5</sup> Dhapte, Aarte, "<a href="https://www.marketresearchfuture.com/reports/spain-wearable-technology-market-43829" 
+target="_blank" rel="noopener noreferrer">Spain Wearable Technology Market</a>", 
+<i>Market Research Future</i>, October, 2025.</p>
+
+<p><sup class="footnote-ref">6</sup> Russell, Stuart; Perset, Karine; Grobelnik, Marko, "<a href="https://oecd.ai/en/wonk/ai-system-definition-update" 
+target="_blank" rel="noopener noreferrer">Updates to the OECD’s definition of an AI system explained</a>", 
+<i>OECD Blog</i>, November 29, 2023.</p>
+
+<p><sup class="footnote-ref">7</sup> Company website, "<a href="https://ouraring.com/about-us" 
+target="_blank" rel="noopener noreferrer">About Us</a>", 
+<i>Oura Health</i>, November 2025.</p>
+
+<p><sup class="footnote-ref">8</sup> McCaskill, Steve, "<a href="https://www.sportspro.com/news/technology/oura-series-e-funding-valuation-sports-tech-nba-october-2025/" 
+target="_blank" rel="noopener noreferrer">Smart ring firm Oura achieves US$11bn valuation as it raises fresh funds</a>", 
+<i>SportsPro Magazine</i>, October 15, 2023.</p>
+
+<p><sup class="footnote-ref">9</sup> Pickman, Ben, "<a href="https://www.si.com/nba/2020/07/01/oura-ring-nba-restart-orlando-coronavirus" 
+target="_blank" rel="noopener noreferrer">NBA restart: Why the Oura ring is key to finishing the season</a>", 
+<i>Sports Illustrated</i>, July 1, 2025.</p>
+
+<p><sup class="footnote-ref">10</sup> News team, "<a href="https://ouraring.com/blog/wnba-covid-free-season/" 
+target="_blank" rel="noopener noreferrer">The WNBA And Oura Celebrate A Covid-Free Season</a>", 
+<i>The Pulse Blog by Oura Health</i>, January 8, 2021.</p>
+
+<p><sup class="footnote-ref">11</sup> Chris Paul is an NBA point-guard, who has won multiple 
+awards such as the All-Star Most Valuable Player, Rookie of the Year, and two Olympic Gold Medals, 
+among other achievements</p>
+
+<p><sup class="footnote-ref">12</sup> News team, "<a href="https://ouraring.com/blog/the-oura-qa-nba-all-star-chris-paul/" 
+target="_blank" rel="noopener noreferrer">The Oura Q&A: NBA All-Star Chris Paul</a>", 
+<i>The Pulse Blog by Oura Health</i>, October 4, 2025.</p>
+
+<p><sup class="footnote-ref">13</sup> Altini, Marco, and Kinnunen, Hannu, "<a href="https://www.mdpi.com/1424-8220/21/13/4302" 
+target="_blank" rel="noopener noreferrer">The Promise of Sleep: A Multi-Sensor Approach for Accurate Sleep Stage Detection Using the Oura Ring</a>", 
+<i>Sensors (Journal)</i>, 23 June 2021.</p>
+
+<p><sup class="footnote-ref">14</sup> Company website, "<a href="https://ouraring.com/medical-advisory-board" 
+target="_blank" rel="noopener noreferrer">Meet Oura's Medical Advisors</a>", 
+<i>Oura Health</i>, November 2025.</p>
+
+<p><sup class="footnote-ref">15</sup> News team, "<a href="https://ouraring.com/blog/how-does-alcohol-impact-oura-members/?lid=q1f3lh7n6gu3&utm_source=user&utm_medium=email&utm_campaign=2025Digest&utm_type=alwayson_ctr&utm_variant=20251124_NovemberDigest_Members_EM01_SLA&utm_content=blog_button_spot2&_brz=6879c420ee4af10064ba3c77" 
+target="_blank" rel="noopener noreferrer">Oura Data Reveals the True Impact of Alcohol on Sleep</a>", 
+<i>The Pulse Blog by Oura Health</i>, November 4, 2025.</p>
+
+<p><sup class="footnote-ref">16</sup> Sundas, Amina; Contreras, Ivan; Navarro-Otano, Judith; Soler Julia; Beneyto, Aleix; Vehi, Josep, "<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12047215/" 
+target="_blank" rel="noopener noreferrer">Heart rate variability over the decades: a scoping review</a>", 
+<i>National Library of Medicine</i>, 2025.</p>
+
+<p><sup class="footnote-ref">17</sup> Sager, Jessica, in interview with several M.D.s, "<a href="https://parade.com/health/downsides-of-measuring-heart-rate-variability-according-to-cardiologists" 
+target="_blank" rel="noopener noreferrer">Downsides of Heart Rate Variability, Cardiologists Say</a>", 
+<i>Parade Magazine</i>, June 19, 2025.</p>
+
+<p><sup class="footnote-ref">18</sup> Theimer, Sharon, in interview with Elijah Behr, M.D., "<a href="https://newsnetwork.mayoclinic.org/discussion/your-wearable-says-your-heart-rate-variability-has-changed-now-what/" 
+target="_blank" rel="noopener noreferrer">Your wearable says your heart rate variability has changed. Now what?</a>", 
+<i>Mayo Clinic News Network</i>, July 30, 2024.</p>
+
+<p><sup class="footnote-ref">19</sup> Harvard Health Publishing Staff, "<a href="https://www.health.harvard.edu/blog/heart-rate-variability-new-way-track-well-2017112212789" 
+target="_blank" rel="noopener noreferrer">Heart rate variability: How it might indicate well-being</a>", 
+<i>Harvard Health Publishing – Harvard Medical School</i>, April 3, 2024.</p>
+
+<p><sup class="footnote-ref">20</sup> Company policy, "<a href="https://ouraring.com/privacy-policy" 
+target="_blank" rel="noopener noreferrer">Oura Ring Privacy Policy</a>", 
+<i>Oura Health</i>, April 21, 2025.</p>
+
+<p><sup class="footnote-ref">21</sup> Company policy, "<a href="https://ouraring.com/security" 
+target="_blank" rel="noopener noreferrer">Oura Ring Data Protection and Trust</a>", 
+<i>Oura Health</i>, May 28, 2025.</p>
+
+<p><sup class="footnote-ref">22</sup> News team, "<a href="https://ouraring.com/blog/oura-cycle-insights/" 
+target="_blank" rel="noopener noreferrer">Cycle Insights: Know Your Cycle Phases, Fertile Window, Period Prediction, and More</a>", 
+<i>The Pulse Blog by Oura Health</i>, November 21, 2025.</p>
+
+<p><sup sclass="footnote-ref">23</sup> Company statement, "<a href="https://ouraring.com/blog/developing-ouras-latest-sleep-staging-algorithm/" 
+target="_blank" rel="noopener noreferrer">Inside the Ring: Developing Oura’s Latest Sleep Staging Algorithm</a>", 
+<i>The Pulse Blog by Oura Health</i>, May 30, 2023.</p>
+
+<br>
+</div>
+
+<p id = "footnote1">&nbsp;&nbsp;Written and web-designed by Kiril Traykov</p>
+
+</body>
+</html>
