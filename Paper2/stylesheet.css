@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;              /* stays put on scroll */
+  inset: 0;
+  background-image: url("images/wallpaper3.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;                  /* ← controls paleness */
+  z-index: -1;                   /* behind content */
+}
+
+#intro {
+  text-align: center;
+  margin-top: 4vh;
+}
+
+#header {
+  width: 30vw;    
+  height: auto;	
+}
+
+#main {
+  margin-left: 20vw;
+  margin-right: 19vw;
+}
+
+p {
+	font-size: 1.5vw;
+}
+
+#pic1, #pic2, #pic3, #pic4 {
+  width: 50vw;    
+  height: auto;	
+  border: 0.75px solid black;
+}
+
+.footnote-ref {
+  font-size: 0.7em;
+  vertical-align: super;
+}
+
+#footnote1 {
+  position: fixed;
+  bottom: 0;
+  font-style: italic;
+  font-size: 1vw;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+
+  /* Layout */
+  #intro {
+    padding: 20px;
+    text-align: center;
+  }
+
+  #main {
+    padding: 20px;
+    margin: 0;
+  }
+
+  /* Header */
+  #header {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Typography */
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  p, li {
+    font-size: 1rem;
+  }
+
+  /* Footnotes */
+  .footnote-ref {
+    font-size: 0.7rem;
+  }
+
+  /* Images */
+  #pic1, #pic2, #pic3, #pic4 {
+    width: 100%;
+  }
+
+  /* Footer */
+  #footnote1 {
+    position: static;
+    text-align: center;
+    margin: 20px;
+    font-size: 0.9rem;
+  }
+
+}
