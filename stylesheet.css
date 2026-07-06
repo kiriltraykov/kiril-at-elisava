@@ -269,6 +269,15 @@ body {
   .descriptionp {
     font-size: 1.1rem;
   }
+  
+  video {
+    width: 100%;
+	height: auto;
+  }
+  
+  #podcastproject video {
+    max-width: 100%;
+  }
 
   /* === Essays === */
   .essay {
